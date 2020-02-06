@@ -1,0 +1,15 @@
+dev notes.
+
+in gteditor, write the meta (which is to be filtered for labeling) using the bottom right field.
+the output file is a xml file. you will see the frame number of a label in the tag MediaRelIncrTimePoint
+if you had a frame step of 5, you would manually label every 5 frames, but the frames of object tracking between 
+	frame steps is linearly interpolated.
+so if your first box was on frame 21 and you labeled 2 more frames (on frames 26 and 31) the xml file would contain 
+the bounding box information for the frames between 22-30 as well. 
+
+for each frame (marked with  a MediaRelIncrTimePoint tag), there is a box with minx maxx miny maxy,
+
+so using the frame of the video and the bounding box you can create a point of training data from 
+the frame of the video at that point and its respective box (and label, which is xml tag Keyword)
+
+each Box should have a corresponding Keyword and MediaRelIncrTimePoint
